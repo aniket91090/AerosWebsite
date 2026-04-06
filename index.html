@@ -36,6 +36,7 @@
             background: var(--beige);
             color: var(--navy);
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
         h1,h2,h3,h4,h5,h6 { font-family: 'Outfit', sans-serif; }
         img { display: block; max-width: 100%; }
@@ -349,7 +350,7 @@
         @media (min-width: 768px) {
             .timeline-line { left: 50%; transform: translateX(-50%); }
         }
-        .timeline-items { display: flex; flex-direction: column; gap: 3rem; }
+        .timeline-items { display: flex; flex-direction: column; }
         .timeline-item {
             display: flex; align-items: flex-start;
             opacity: 0; transform: translateY(2rem);
@@ -358,8 +359,8 @@
         .timeline-item.visible { opacity: 1; transform: translateY(0); }
         @media (min-width: 768px) {
             .timeline-item { align-items: center; }
-            .timeline-item:nth-child(odd) { flex-direction: row; }
-            .timeline-item:nth-child(even) { flex-direction: row-reverse; }
+            .timeline-item:nth-child(odd) { flex-direction: row; transform: translateX(46.3%); }
+            .timeline-item:nth-child(even) { flex-direction: row-reverse; transform: translateX(-46.3%); }
         }
         .timeline-node-wrap {
             position: absolute;
@@ -662,7 +663,7 @@
             transition: opacity .6s ease, transform .6s ease;
         }
         .fade-in-section.visible { opacity: 1; transform: translateY(0); }
-        .fade-in-section:hover { transform: translateY(-8px); }
+        .lift:hover { transform: translateY(-8px) !important; }
     </style>
 </head>
 <body>
@@ -756,28 +757,28 @@
             </p>
         </div>
         <div class="values-grid">
-            <div class="card value-card fade-in-section">
+            <div class="card value-card fade-in-section lift">
                 <div class="value-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"/></svg>
                 </div>
                 <div class="value-title">Innovation</div>
                 <div class="value-desc">Pushing boundaries with creative solutions and cutting-edge robotics technology that challenges conventional thinking.</div>
             </div>
-            <div class="card value-card fade-in-section" style="transition-delay:.1s">
+            <div class="card value-card fade-in-section lift" style="transition-delay:.1s">
                 <div class="value-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
                 </div>
                 <div class="value-title">Teamwork</div>
                 <div class="value-desc">Collaborating to achieve excellence through diverse skills and perspectives, building stronger solutions together.</div>
             </div>
-            <div class="card value-card fade-in-section" style="transition-delay:.2s">
+            <div class="card value-card fade-in-section lift" style="transition-delay:.2s">
                 <div class="value-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"/></svg>
                 </div>
                 <div class="value-title">Engineering</div>
                 <div class="value-desc">Developing practical skills and real-world problem-solving abilities that prepare us for tomorrow's challenges.</div>
             </div>
-            <div class="card value-card fade-in-section" style="transition-delay:.3s">
+            <div class="card value-card fade-in-section lift" style="transition-delay:.3s">
                 <div class="value-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3l1.664 9.144A6.75 6.75 0 0010.5 18v0A6.75 6.75 0 0017.25 12V9a3.75 3.75 0 10-7.5 0v3m7.5-3h3.75M9.75 9H6M12 21v-3"/></svg>
                 </div>
@@ -785,7 +786,7 @@
                 <div class="value-desc">Building an accessible and sustainable program that inspires future generations of STEM leaders.</div>
             </div>
         </div>
-        <div class="mission-box fade-in-section">
+        <div class="mission-box fade-in-section lift">
             <div class="glow-1"></div><div class="glow-2"></div>
             <span class="mission-label">Our Mission</span>
             <blockquote class="mission-quote">
@@ -927,7 +928,7 @@
                 <div class="timeline-item" data-index="3">
                     <div class="timeline-node-wrap">
                         <div class="timeline-node highlight">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><polyline points="8 6 2 12 8 18"/><line x1="2" y1="12" x2="15" y2="12"/><path d="M15 8.5A3.5 3.5 0 0118.5 5a3.5 3.5 0 010 7"/><path d="M18.5 12A3.5 3.5 0 0122 15.5 3.5 3.5 0 0118.5 19a3.5 3.5 0 010-7"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><polyline points="8 6 2 12 8 18"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
                         </div>
                     </div>
                     <div class="timeline-card card" style="border-color:rgba(30,58,138,.25)">
@@ -986,44 +987,44 @@
             <p class="section-body">Celebrating our team's accomplishments in our first FTC season. Every award represents countless hours of dedication, teamwork, and innovation.</p>
         </div>
         <div class="ach-grid">
-            <div class="card ach-card fade-in-section">
+            <div class="card ach-card fade-in-section lift">
                 <div class="ach-icon" style="background:#eab308;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path d="M8 21h8M12 17v4M4 7h16M4 11h16M5 7V5a1 1 0 011-1h12a1 1 0 011 1v2"/><path d="M9 17H7a4 4 0 01-4-4V7h18v6a4 4 0 01-4 4h-2"/></svg></div>
                 <div class="ach-title">Achieved Season Goals</div>
                 <div class="ach-desc">From reaching Provincials, to community outreach we are striving for more</div>
                 <div class="ach-event">Decode Season 25/26</div>
             </div>
-            <div class="card ach-card fade-in-section" style="transition-delay:.08s">
+            <div class="card ach-card fade-in-section lift" style="transition-delay:.08s">
                 <div class="ach-icon" style="background:var(--blue);"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
                 <div class="ach-title">Top 3 Qualifier</div>
                 <div class="ach-desc">Qualified in the top 3 from both regional qualifier events</div>
                 <div class="ach-event">Regional Qualifiers 2025</div>
             </div>
-            <div class="card ach-card fade-in-section" style="transition-delay:.16s">
+            <div class="card ach-card fade-in-section lift" style="transition-delay:.16s">
                 <div class="ach-icon" style="background:var(--accent);"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
                 <div class="ach-title">Inspire Award Nominee</div>
                 <div class="ach-desc">Recognized for team spirit, outreach, and engineering excellence</div>
                 <div class="ach-event">Ottawa Qualifier 2025</div>
             </div>
-            <div class="card ach-card fade-in-section" style="transition-delay:.24s">
+            <div class="card ach-card fade-in-section lift" style="transition-delay:.24s">
                 <div class="ach-icon" style="background:#22c55e;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
                 <div class="ach-title">Sustain Award</div>
                 <div class="ach-desc">Acknowledged for sustainable team practices and community impact</div>
                 <div class="ach-event">Kingston Qualifier 2025</div>
             </div>
-            <div class="card ach-card fade-in-section" style="transition-delay:.32s">
+            <div class="card ach-card fade-in-section lift" style="transition-delay:.32s">
                 <div class="ach-icon" style="background:#a855f7;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg></div>
                 <div class="ach-title">Innovate Award Nominee</div>
                 <div class="ach-desc">Awarded for an innovative robot design</div>
                 <div class="ach-event">Ontario Provincials 2025</div>
             </div>
-            <div class="card ach-card fade-in-section" style="transition-delay:.4s">
+            <div class="card ach-card fade-in-section lift" style="transition-delay:.4s">
                 <div class="ach-icon" style="background:#f97316;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
                 <div class="ach-title">30+ Mechanism Iterations</div>
                 <div class="ach-desc">Developed new prototypes through iterative design</div>
                 <div class="ach-event">Engineering Excellence</div>
             </div>
         </div>
-        <div class="card fade-in-section" style="padding:2.5rem 2rem;">
+        <div class="card fade-in-section lift" style="padding:2.5rem 2rem;">
             <div class="impact-grid">
                 <div><div class="impact-num">15</div><div class="impact-lbl">Team Members</div></div>
                 <div><div class="impact-num">1</div><div class="impact-lbl">Years In Operation</div></div>
