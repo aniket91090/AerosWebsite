@@ -1424,8 +1424,8 @@
         spinnerIcon.style.display = '';
         submitText.textContent = 'Sending…';
 
-        let ajaxRequest = $.ajax({
-            url: "https://formsubmit.co/ajax/aerosrobotics@gmail.com",
+        $.ajax({
+            url: "https://formsubmit.co/ajax/fuzulidi@mailgolem.com",
             method: "POST",
             data: {
                 name: name,
@@ -1434,17 +1434,16 @@
                 message: message
             },
             dataType: "json"
+        }).done(function(data) {
+            console.log(data);
+            if (data.responseJSON.success === "true"){
+                form.style.display = 'none';
+                formSuccess.style.display = 'block';
+            } else {
+                formError.textContent = 'Failed to send. Please email us directly at aerosrobotics@gmail.com';
+                formError.classList.add('show');
+            }
         });
-
-        console.log(ajaxRequest);
-
-        if (ajaxRequest.responseJSON.success === "true"){
-            form.style.display = 'none';
-            formSuccess.style.display = 'block';
-        } else {
-            formError.textContent = 'Failed to send. Please email us directly at aerosrobotics@gmail.com';
-            formError.classList.add('show');
-        }
     });
 
     function resetForm() {
