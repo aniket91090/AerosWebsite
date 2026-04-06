@@ -1424,26 +1424,26 @@
         spinnerIcon.style.display = '';
         submitText.textContent = 'Sending…';
 
-        try {
-            console.log($.ajax({
-                url: "https://formsubmit.co/ajax/aerosrobotics@gmail.com",
-                method: "POST",
-                data: {
-                    name: name,
-                    email: email,
-                    subject: subject,
-                    message: message
-                },
-                dataType: "json"
-            }));
-        } catch (err) {
+        let ajaxRequest = $.ajax({
+            url: "https://formsubmit.co/ajax/aerosrobotics@gmail.com",
+            method: "POST",
+            data: {
+                name: name,
+                email: email,
+                subject: subject,
+                message: message
+            },
+            dataType: "json"
+        });
+
+        console.log(ajaxRequest);
+
+        if (ajaxRequest.responseJSON.success === "true"){
+            form.style.display = 'none';
+            formSuccess.style.display = 'block';
+        } else {
             formError.textContent = 'Failed to send. Please email us directly at aerosrobotics@gmail.com';
             formError.classList.add('show');
-        } finally {
-            submitBtn.disabled = false;
-            sendIcon.style.display = '';
-            spinnerIcon.style.display = 'none';
-            submitText.textContent = 'Send Message';
         }
     });
 
