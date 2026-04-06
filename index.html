@@ -1425,7 +1425,7 @@
         submitText.textContent = 'Sending…';
 
         try {
-            $.ajax({
+            console.log($.ajax({
                 url: "https://formsubmit.co/ajax/aerosrobotics@gmail.com",
                 method: "POST",
                 data: {
@@ -1435,7 +1435,7 @@
                     message: message
                 },
                 dataType: "json"
-            });
+            }));
         } catch (err) {
             formError.textContent = 'Failed to send. Please email us directly at aerosrobotics@gmail.com';
             formError.classList.add('show');
