@@ -1436,7 +1436,7 @@
             dataType: "json"
         }).done(function(data) {
             console.log(data);
-            if (data.responseJSON.success === "true"){
+            if (data.success === "true"){
                 form.style.display = 'none';
                 formSuccess.style.display = 'block';
             } else {
