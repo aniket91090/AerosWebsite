@@ -1425,17 +1425,17 @@
         submitText.textContent = 'Sending…';
 
         try {
-            const res = await fetch('https://formsubmit.co/el/gadufe', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify({ name, email, _subject: subject, message })
+            $.ajax({
+                url: "https://formsubmit.co/ajax/aerosrobotics@gmail.com",
+                method: "POST",
+                data: {
+                    name: name,
+                    email: email,
+                    subject: subject,
+                    message: message
+                },
+                dataType: "json"
             });
-            if (res.ok) {
-                form.style.display = 'none';
-                formSuccess.style.display = 'block';
-            } else {
-                throw new Error('Server error');
-            }
         } catch (err) {
             formError.textContent = 'Failed to send. Please email us directly at aerosrobotics@gmail.com';
             formError.classList.add('show');
