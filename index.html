@@ -687,6 +687,7 @@
                 <button class="nav-link" onclick="navScrollTo('#team')">Team</button>
                 <button class="nav-link" onclick="navScrollTo('#sponsors')">Sponsors</button>
                 <button class="nav-link" onclick="navScrollTo('#contact')">Contact</button>
+                <button class="nav-link" onclick="navScrollTo('#joinus')">Join Us</button>
             </div>
             <button class="btn btn-primary nav-sponsor" onclick="navScrollTo('#sponsors')" style="padding:.625rem 1.5rem;font-size:.875rem;">Become a Sponsor</button>
             <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
@@ -1250,6 +1251,27 @@
     </div>
 </section>
 
+<section id="joinus" style="padding:6rem 0;background:var(--beige-alt);">
+    <div class="container">
+        <div class="section-intro fade-in-section">
+            <h2 class="section-heading">Join Us</h2>
+        </div>
+        <div style="text-align: center;">
+            <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSdyUtwUDPfbejoa3mVJpJLIEXGLxhw3jjnVHrUVMfnlsIupeA/viewform?embedded=true"
+                    width="640"
+                    height="800"
+                    frameborder="0"
+                    marginheight="0"
+                    marginwidth="0">
+                Loading…
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<section></section>
+
 <!-- ─── FOOTER ─── -->
 <footer>
     <div class="container">
@@ -1318,8 +1340,15 @@
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     /* ── Smooth scroll helper (renamed to avoid clash with window.scrollTo) ── */
+    //important fix!!! FIX LATER FIX FIX FIX INEFFICIENT FIX BUT WTV CHANGE LATER!!!
     function navScrollTo(selector) {
+        let t = 0;
+        if (selector === "#joinus"){t=3} //tung tung tung sahur t3!11!!1 //change later! //srs change later or break
         const el = document.querySelector(selector);
+        window.addEventListener('scrollend', () => {
+            if (t===3){el.scrollIntoView({behavior: 'smooth'});}
+            window.removeEventListener('scrollend', ()=>{})
+        }, { once: true });
         if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
 
